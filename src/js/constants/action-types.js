@@ -1,0 +1,5 @@
+export const ADD_LINES = 'ADD_LINES'
+export const ADD_SERIES = 'ADD_SERIES'
+export const EXPAND_LINE = 'EXPAND_LINE'
+export const FIND_MATCHES = 'FIND_MATCHES'
+export const SET_QUOTE = 'SET_QUOTE'
