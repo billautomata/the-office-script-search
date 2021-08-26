@@ -64,6 +64,11 @@ function ConnectedMatches (props) {
                 {(()=>{
                   if (expandedMatch === true) {
                     const previousLine = props.lines.filter(o=>{ return Number(o.id) === Number(match.id)-1 })[0]
+                    if(previousLine === undefined ) {
+                      return (
+                        <></>
+                      )
+                    }
                     return (
                       <div style={{padding: '0px 0px 12px 0px'}}><b>{previousLine.speaker}</b> {previousLine.line_text}</div>
                     )
@@ -73,6 +78,11 @@ function ConnectedMatches (props) {
                 {(()=>{
                   if (expandedMatch === true) {
                     const nextLine = props.lines.filter(o=>{ return Number(o.id) === Number(match.id)+1 })[0]
+                    if(nextLine === undefined ) {
+                      return (
+                        <></>
+                      )
+                    }
                     return (
                       <div style={{padding: '12px 0px 0px 0px'}}><b>{nextLine.speaker}</b> {nextLine.line_text}</div>
                     )

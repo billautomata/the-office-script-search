@@ -3,7 +3,6 @@ import generateTreemap from '../../lib/generateTreemap'
 import initializeBubbleData from '../../lib/initializeBubbleData'
 import updateBubbleData from '../../lib/updateBubbleData'
 
-
 import {
   ADD_LINES,
   ADD_SERIES,

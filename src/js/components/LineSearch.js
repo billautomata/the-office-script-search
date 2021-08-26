@@ -5,7 +5,7 @@ import Instructions from './LineSearch-components/Instructions'
 import Matches from './LineSearch-components/Matches'
 import OfficeLogo from '../../img/the-office.svg'
 import QuoteInput from './LineSearch-components/QuoteInput'
-import StateDebug from './StateDebug'
+// import StateDebug from './StateDebug'
 import Treemap from './LineSearch-components/Treemap'
 
 const mapStateToProps = (state, ownProps) => {
@@ -17,13 +17,8 @@ function mapDispatchToProps(dispatch) {
 }
 
 // todo
-// bubbles
-  // click bubble to go to the match
-// matches
-  // expand each line
-  // expand all
-// treemap
-  // filter by character
+// loading screen
+// handle no results found
 
 const ConnectedLineSearch = function () {
   return (
