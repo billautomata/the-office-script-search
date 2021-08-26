@@ -3,7 +3,7 @@ import Grid from '@material-ui/core/Grid'
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    resultsFound: state.matches.length
+    resultsFound: state.filteredCharacter !== null ? state.matches.filter(o=>{ return o.speaker === state.filteredCharacter }).length : state.matches.length
   }
 }
 
@@ -13,8 +13,8 @@ function mapDispatchToProps(dispatch) {
 
 function ConnectedResultsFoundCount (props) {
   return (
-    <Grid item container xs={12} justify='flex-end'>
-      { props.resultsFound } result{ props.resultsFound === 1 ? '' : 's' } found
+    <Grid item container xs={12} justifyContent='flex-end'>
+      <span style={{fontWeight: 700, marginRight: 4}}>{ props.resultsFound }</span> result{ props.resultsFound === 1 ? '' : 's' } found
     </Grid>
   )
 }

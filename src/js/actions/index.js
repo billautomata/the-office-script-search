@@ -1,7 +1,9 @@
 import {
   ADD_LINES,
   ADD_SERIES,
-  EXPAND_LINE,
+  CHARACTER_FILTER,
+  EXPAND_ALL_LINES,
+  EXPAND_LINE,  
   FIND_MATCHES,
   SET_QUOTE,
 } from '../constants/action-types'
@@ -14,8 +16,16 @@ export function addSeries (payload) {
   return { type: ADD_SERIES, payload }
 }
 
+export function characterFilter (payload) {
+  return { type: CHARACTER_FILTER, payload }
+}
+
 export function expandLine (payload) {
   return { type: EXPAND_LINE, payload }  
+}
+
+export function expandAllLines (payload) {
+  return { type: EXPAND_ALL_LINES, payload }  
 }
 
 export function findMatches (payload) {

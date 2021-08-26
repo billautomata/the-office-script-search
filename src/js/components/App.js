@@ -20,7 +20,6 @@ function mapDispatchToProps(dispatch) {
 const ConnectedApp = function ({ addLines, addSeries, findMatches }) {
 
   csv(DataOfficeLines).then(d=>{
-    console.log('csv lines done', d.length)
     addLines(d)
     csv(DataOfficeSeries).then(d=>{
       addSeries(d)

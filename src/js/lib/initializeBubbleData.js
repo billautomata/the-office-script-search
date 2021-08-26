@@ -1,5 +1,4 @@
 export default function buildEmptyBubbleData (series) {
-  console.log('buildEmptyBubbleData', series)
   const seasons = {}
   series.forEach(episode => {
     if(seasons[episode.Season] === undefined) {

@@ -16,10 +16,13 @@ function mapDispatchToProps(dispatch) {
 const ConnectedStateDebug = function ({ state }) {
 
   return (
-    <Grid container xs={12}>
-      <Grid item xs={12}>Series Length: {state.series.length}</Grid>
-      <Grid item xs={12}>Lines Length: {state.lines.length}</Grid>
-      <Grid item xs={12}>Matches Length: {state.matches.length}</Grid>
+    <Grid container>
+      <Grid item xs={4}>Series Length: {state.series.length}</Grid>
+      <Grid item xs={4}>Lines Length: {state.lines.length}</Grid>
+      <Grid item xs={4}>Matches Length: {state.matches.length}</Grid>
+      <Grid item xs={12}>Expanded Matches: {state.expandedMatches.join(',')}</Grid>
+      <Grid item xs={12}>Treemap Leaves: {state.treemapLeaves.length}</Grid>
+      <Grid item xs={12}>Filtered Character: {state.filteredCharacter}</Grid>
     </Grid>
   )
 }
