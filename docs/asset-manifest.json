@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/the-office/static/css/main.6dea0f05.chunk.css",
+    "main.js": "/the-office/static/js/main.08c2683e.chunk.js",
+    "main.js.map": "/the-office/static/js/main.08c2683e.chunk.js.map",
+    "runtime-main.js": "/the-office/static/js/runtime-main.6133a39d.js",
+    "runtime-main.js.map": "/the-office/static/js/runtime-main.6133a39d.js.map",
+    "static/js/2.12988e4d.chunk.js": "/the-office/static/js/2.12988e4d.chunk.js",
+    "static/js/2.12988e4d.chunk.js.map": "/the-office/static/js/2.12988e4d.chunk.js.map",
+    "static/js/3.ca0e49ee.chunk.js": "/the-office/static/js/3.ca0e49ee.chunk.js",
+    "static/js/3.ca0e49ee.chunk.js.map": "/the-office/static/js/3.ca0e49ee.chunk.js.map",
+    "index.html": "/the-office/index.html",
+    "static/css/main.6dea0f05.chunk.css.map": "/the-office/static/css/main.6dea0f05.chunk.css.map",
+    "static/js/2.12988e4d.chunk.js.LICENSE.txt": "/the-office/static/js/2.12988e4d.chunk.js.LICENSE.txt",
+    "static/media/blind-guy-mcsqueezy.a07a56ae.jpeg": "/the-office/static/media/blind-guy-mcsqueezy.a07a56ae.jpeg",
+    "static/media/the-office-lines-scripts.ec62a81b.csv": "/the-office/static/media/the-office-lines-scripts.ec62a81b.csv",
+    "static/media/the-office-series.4be06bee.csv": "/the-office/static/media/the-office-series.4be06bee.csv",
+    "static/media/the-office.b100c584.svg": "/the-office/static/media/the-office.b100c584.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6133a39d.js",
+    "static/js/2.12988e4d.chunk.js",
+    "static/css/main.6dea0f05.chunk.css",
+    "static/js/main.08c2683e.chunk.js"
+  ]
+}
