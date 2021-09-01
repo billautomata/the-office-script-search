@@ -17,7 +17,7 @@ function mapDispatchToProps(dispatch) {
 
 function ConnectedTreemap ({ treemapLeaves, filteredCharacter, setFilteredCharacter }) {
   return (
-    <Grid item xs={12} style={{ marginBottom: 12 }}>
+    <Grid item xs={12} style={{ marginBottom: 0 }}>
       <div style={{ position: 'relative', height: 172, width: 1024, margin: 'auto'}}>
         {
           treemapLeaves.map((leaf,leafIdx) => {

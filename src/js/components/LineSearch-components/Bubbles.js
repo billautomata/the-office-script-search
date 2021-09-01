@@ -1,6 +1,5 @@
 import { connect } from 'react-redux'
 import { Grid } from '@material-ui/core'
-// import { findMatches, setQuote } from '../../actions/index'
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -15,7 +14,7 @@ function mapDispatchToProps(dispatch) {
 function ConnectedBubbles ({ bubbleData }) {
   return (
     <Grid item xs={12}>
-      <svg style={{ width: 1024, height: 420, userSelect: 'none' }}>
+      <svg style={{ width: 1024, height: 410, userSelect: 'none' }}>
         <g transform='translate(0 30)'>
           {
             Object.values(bubbleData.seasons).map((season, seasonIdx) => {
@@ -31,7 +30,8 @@ function ConnectedBubbles ({ bubbleData }) {
                   {
                     season.episodes.map((episode, episodeIdx) => {
                       return (
-                        <g transform={`translate(${(episodeIdx * 35) + 25} 0)`} key={`bubble_season_${seasonIdx}_episode_${episodeIdx}`}
+                        <g data-testid={`bc-${seasonIdx}-${episodeIdx}`}
+                          transform={`translate(${(episodeIdx * 35) + 25} 0)`} key={`bubble_season_${seasonIdx}_episode_${episodeIdx}`}
                           style={{
                             cursor: episode > 0 ? 'pointer' : null
                           }}

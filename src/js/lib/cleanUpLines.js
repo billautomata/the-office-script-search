@@ -1,7 +1,10 @@
 export default function cleanUpLines (lines) {
   const charactersToRemove = ['?','.',',','!','-']
   const filteredLines = lines.filter(o=>{return o.deleted !== 'TRUE'})
-
+  // reset the id's of the lines after deleting all the deleted lines
+  for(let i = 0; i < filteredLines.length ; i++) {
+    filteredLines[i].id = String(i)
+  }
   // clean up the lines
   filteredLines.forEach(line=>{
     line.search_text = line.line_text.replace(RegExp('\\[.*?\\]'),'');          
