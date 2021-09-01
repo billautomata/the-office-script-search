@@ -5,6 +5,7 @@ import {
   EXPAND_ALL_LINES,
   EXPAND_LINE,  
   FIND_MATCHES,
+  FINISH_LOADING,
   SET_QUOTE,
 } from '../constants/action-types'
 
@@ -30,6 +31,10 @@ export function expandAllLines (payload) {
 
 export function findMatches (payload) {
   return { type: FIND_MATCHES, payload }
+}
+
+export function finishLoading (payload) {
+  return { type: FINISH_LOADING, payload }
 }
 
 export function setQuote (payload) {

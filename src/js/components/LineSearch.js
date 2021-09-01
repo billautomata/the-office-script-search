@@ -12,9 +12,10 @@ import LoadingScreen from './loading-screens/Maze'
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    series: state.series,
-    lines: state.lines,
-    matches: state.matches
+    finishedLoading: state.finishedLoading,
+    lines: state.lines,    
+    matches: state.matches,
+    series: state.series    
   }
 }
 
@@ -40,7 +41,7 @@ const ConnectedLineSearch = function (props) {
       </Grid>
       {
         (()=>{
-          if(props.series.length === 0 && props.lines.length === 0) {
+          if(props.finishedLoading === false) {
             return (
               <Grid item xs={6} style={{ margin: 'auto', marginTop: 12 }}>
                 <LoadingScreen/>

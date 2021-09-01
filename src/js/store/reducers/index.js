@@ -10,20 +10,20 @@ import {
   EXPAND_LINE,
   EXPAND_ALL_LINES,
   FIND_MATCHES,
+  FINISH_LOADING,
   SET_QUOTE
 } from '../../constants/action-types'
 
-const initialState = {
-  quote: 'that\'s what she said',
-  lines: [],
-  series: [],
-  matches: [],
-  bubbleData: {
-    seasons: []
-  },
+const initialState = {  
+  bubbleData: { seasons: [] },
   expandedMatches: [],
-  treemapLeaves: [],
-  filteredCharacter: null
+  filteredCharacter: null,
+  finishedLoading: false,
+  lines: [],
+  matches: [],
+  series: [],
+  treemapLeaves: [],  
+  quote: 'that\'s what she said',
 }
 
 function rootReducer(state = initialState, action) {
@@ -64,6 +64,8 @@ function rootReducer(state = initialState, action) {
       const updatedBubbleData = updateBubbleData(state.bubbleData, matches, null)
       const treemapLeaves = generateTreemap(matches)
       return Object.assign({}, state, { matches, bubbleData: updatedBubbleData, expandedMatches: [], treemapLeaves, filteredCharacter: null })
+    case FINISH_LOADING:
+      return Object.assign({}, state, { finishedLoading: true })      
     case SET_QUOTE: 
       return Object.assign({}, state, { quote: action.payload.quote })
     default:
