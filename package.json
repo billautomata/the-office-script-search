@@ -2,7 +2,7 @@
   "name": "the-office-visualizations-redux",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://billautomata.github.io/the-office/",
+  "homepage": "https://billautomata.github.io/the-office-script-search/",
   "dependencies": {
     "@material-ui/core": "^4.11.4",
     "@testing-library/jest-dom": "^5.14.1",
