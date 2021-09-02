@@ -23,16 +23,6 @@ const mapStateToProps = (state, ownProps) => {
 function mapDispatchToProps(dispatch) {
   return {}
 }
-
-// todo
-// loading screen
-// max results
-// handle no results found
-// tests
-  // treemap
-  // bubbles
-  // matches
-    // expanded
   
 const ConnectedLineSearch = function (props) {
   return (
