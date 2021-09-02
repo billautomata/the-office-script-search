@@ -77,11 +77,11 @@ function ConnectedMatches (props) {
                   textAlign: 'center', 
                   marginBottom: 0 
                 }}>
-                <Grid item xs={2} sm={1}>{match.season}</Grid>
-                <Grid item xs={10} sm={2}>{props.series.filter(o=>{ return Number(o.Season) === Number(match.season) })[Number(match.episode)-1].EpisodeTitle}</Grid>
+                <Grid item xs={2} sm={1}><Box display={{xs:'inline-block', sm: 'none'}}>S</Box>{match.season}</Grid>
+                <Grid item xs={6} sm={2}>{props.series.filter(o=>{ return Number(o.Season) === Number(match.season) })[Number(match.episode)-1].EpisodeTitle}</Grid>
                 <Box display={{ xs: 'block', sm: 'none' }}><Grid item xs={12} style={{ height: 32 }}/></Box>
                 <Grid item xs={4} sm={2}>{match.speaker}</Grid>              
-                <Grid item xs={8} sm={6} style={{ textAlign: 'left' }}>
+                <Grid item xs={12} sm={6} style={{ textAlign: 'left' }}>
                   {(()=>{
                     if (expandedMatch === true) {
                       const previousLine = props.lines.filter(o=>{ return Number(o.id) === Number(match.id)-1 })[0]
@@ -110,8 +110,7 @@ function ConnectedMatches (props) {
                     }
                   })()}
                 </Grid>
-                <Box display={{ xs: 'block', sm: 'none' }}><Grid item xs={12} style={{ height: 64 }}/></Box>
-                <Grid item xs={2} sm={1} 
+                <Grid item xs={12} sm={1} 
                   style={{ 
                     cursor: 'pointer', 
                     color: '#333', 

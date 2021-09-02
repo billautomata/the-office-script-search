@@ -37,7 +37,7 @@ function mapDispatchToProps(dispatch) {
 const ConnectedLineSearch = function (props) {
   return (
     <Grid container style={{ textAlign: 'center', marginBottom: 1024, marginTop: 14 }} justifyContent='center'>
-      <Grid item xs={11} sm={11} md={10} lg={9} xl={8}> 
+      <Grid item xs={11} sm={11} md={11} lg={10} xl={8}> 
         <img src={OfficeLogo} alt='logo for the television series: the office'/>
       </Grid>
       {
@@ -50,7 +50,7 @@ const ConnectedLineSearch = function (props) {
             )
           } else {
             return (
-              <Grid container item item justifyContent='center' xs={12} sm={11} md={8}>
+              <Grid container item item justifyContent='center' xs={12} sm={11} md={11} lg={10} xl={8}>
                 <Grid container item xs={11}>
                   <Instructions/>
                   <QuoteInput/>
@@ -61,14 +61,17 @@ const ConnectedLineSearch = function (props) {
                 </Grid>
                 <Grid container item justifyContent='center' xs={12} style={{ opacity: props.matches.length === 0 ? '0%' : null }}>
                   <Grid item xs={11}>
-                    <Treemap/>             
-                    <ResultsFoundCount/>              
+                    <Treemap/>                               
                   </Grid>                  
+                  <Grid item xs={12} sm={11} md={11}>
+                    <Bubbles/>
+                  </Grid>
+                  <Grid item xs={11} sm={12}>
+                    <ResultsFoundCount/>              
+                  </Grid>
                   <Grid item xs={12} sm={12} md={11}>
                     <Matches/>
                   </Grid>
-                  {/* <Bubbles/> */}
-                  
                 </Grid>
               </Grid>
             )

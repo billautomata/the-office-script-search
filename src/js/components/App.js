@@ -1,7 +1,6 @@
 import { addLines, addSeries, findMatches, finishLoading, setSize } from '../actions/index'
 import { connect } from "react-redux"
 import { csv } from 'd3'
-import { useMediaQuery } from 'react-responsive'
 import DataOfficeLines from '../../data/the-office-lines-scripts.csv'
 import DataOfficeSeries from '../../data/the-office-series.csv'
 import LineSearch from './LineSearch'
