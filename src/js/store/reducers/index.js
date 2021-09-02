@@ -13,10 +13,9 @@ import {
   FINISH_LOADING,
   SET_QUOTE,
   SET_SIZE,
+  SHOW_ALL,
   TREEMAP_SIZE
 } from '../../constants/action-types'
-
-let treemapParentNode = null
 
 const initialState = {  
   bubbleData: { seasons: [] },
@@ -28,9 +27,11 @@ const initialState = {
   matches: [],
   maxSlice: false,
   series: [],
+  showAll: false,
   treemapDimensions: [0,0],
   treemapLeaves: [],  
-  quote: 'that\'s what she said',
+  quote: 'that\'s what she said', // low value setting
+  // quote: 'said', // high value setting
 }
 
 function rootReducer(state = initialState, action) {
@@ -69,25 +70,21 @@ function rootReducer(state = initialState, action) {
         }            
       })
       const updatedBubbleData = updateBubbleData(state.bubbleData, matches, null)
-      if(treemapParentNode !== null) {
-        console.log(treemapParentNode.current)
-        if(treemapParentNode.current !== undefined) {
-          console.log(treemapParentNode.current.clientWidth, treemapParentNode.current.clientHeight)
-        }        
-      } 
       const treemapLeaves = generateTreemap(matches, state.treemapDimensions)
-      return Object.assign({}, state, { matches, bubbleData: updatedBubbleData, expandedMatches: [], treemapLeaves, filteredCharacter: null })
+      return Object.assign({}, state, { matches, bubbleData: updatedBubbleData, expandedMatches: [], treemapLeaves, filteredCharacter: null, showAll: false })
     case FINISH_LOADING:
       return Object.assign({}, state, { finishedLoading: true })      
     case SET_QUOTE: 
       return Object.assign({}, state, { quote: action.payload.quote })
     case SET_SIZE:
       return Object.assign({}, state, { isTabletOrMobile: action.payload })
+    case SHOW_ALL:
+      return Object.assign({}, state, { showAll: action.payload })
     case TREEMAP_SIZE:
       if(action.payload.current === undefined || action.payload.current === null) {
         return
       }
-      treemapParentNode = action.payload
+      // let treemapParentNode = action.payload
       const treemapDimensions = [ action.payload.current.clientWidth, action.payload.current.clientHeight ]
       return Object.assign({}, state, { treemapDimensions, treemapLeaves: generateTreemap(state.matches, treemapDimensions) })  
     default:

@@ -37,7 +37,7 @@ function mapDispatchToProps(dispatch) {
 const ConnectedLineSearch = function (props) {
   return (
     <Grid container style={{ textAlign: 'center', marginBottom: 1024, marginTop: 14 }} justifyContent='center'>
-      <Grid item xs={11} sm={11} md={11} lg={7} xl={6}> 
+      <Grid item xs={11} sm={10} md={9} lg={8} xl={6}> 
         <img src={OfficeLogo} alt='logo for the television series: the office'/>
       </Grid>
       {

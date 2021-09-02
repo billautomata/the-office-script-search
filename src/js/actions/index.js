@@ -8,6 +8,7 @@ import {
   FINISH_LOADING,
   SET_QUOTE,
   SET_SIZE,
+  SHOW_ALL,
   TREEMAP_SIZE
 } from '../constants/action-types'
 
@@ -45,6 +46,10 @@ export function setQuote (payload) {
 
 export function setSize (payload) {
   return { type: SET_SIZE, payload }
+}
+
+export function setShowAll (payload) {
+  return { type: SHOW_ALL, payload }
 }
 
 export function treemapResize (payload) {

@@ -8,7 +8,7 @@ const mapStateToProps = (state, ownProps) => {
     lines: state.lines,
     isTabletOrMobile: state.isTabletOrMobile,
     matches: state.matches,
-    maxSlice: state.maxSlice,
+    maxSlice: state.showAll,
     expandedMatches: state.expandedMatches,
     filteredCharacter: state.filteredCharacter,
     series: state.series
