@@ -28,8 +28,7 @@ function ConnectedMatches (props) {
   const isMobile = useMediaQuery(MOBILE_DEFINITION)
 
   return (
-    <Grid item container style={{width: 1024, margin: 'auto', letterSpacing: 0.5}}>
-      <ResultsFoundCount/>       
+    <Grid item container xs={12}>
       <Grid item container data-testid='matches' xs={12}>
         <Grid item container xs={12} alignItems='center' style={{ padding: 12, textAlign: 'center', marginBottom: 2, fontWeight: 600, letterSpacing: 1 }}>            
           <Grid item xs={4} sm={1} md={1}>
@@ -112,7 +111,7 @@ function ConnectedMatches (props) {
                   })()}
                 </Grid>
                 <Box display={{ xs: 'block', sm: 'none' }}><Grid item xs={12} style={{ height: 64 }}/></Box>
-                <Grid item xs={2} sm={2} 
+                <Grid item xs={2} sm={1} 
                   style={{ 
                     cursor: 'pointer', 
                     color: '#333', 

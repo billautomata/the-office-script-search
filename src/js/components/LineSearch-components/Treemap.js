@@ -22,12 +22,13 @@ function ConnectedTreemap ({ treemapLeaves, filteredCharacter, setFilteredCharac
 
   const containerReference = useCallback(node => {
     if (node !== null) {
-      console.log('node exists')
       setTreemapContainerSize({ current: node })
       window.TREEMAP_resizeAction = window.addEventListener('resize', () => {
-        console.log('resize action', node)
         setTreemapContainerSize({ current: node })
       })
+      return function cleanup () {
+        window.removeEventListener(window.TREEMAP_resizeAction)
+      }
     }
   }, []);
 

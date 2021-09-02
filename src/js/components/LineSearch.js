@@ -6,6 +6,7 @@ import Matches from './LineSearch-components/Matches'
 import OfficeLogo from '../../img/the-office.svg'
 import QuoteInput from './LineSearch-components/QuoteInput'
 // import StateDebug from './StateDebug'
+import ResultsFoundCount from './LineSearch-components/ResultsFoundCount'
 import Treemap from './LineSearch-components/Treemap'
 import BlindGuyMcSqueezy from '../../img/blind-guy-mcsqueezy.jpeg'
 import LoadingScreen from './loading-screens/Maze'
@@ -35,33 +36,39 @@ function mapDispatchToProps(dispatch) {
   
 const ConnectedLineSearch = function (props) {
   return (
-    <Grid container style={{ textAlign: 'center', marginBottom: 1024, marginTop: 16 }} justifyContent='center'>
-      <Grid item xs={11} sm={8}> 
+    <Grid container style={{ textAlign: 'center', marginBottom: 1024, marginTop: 14 }} justifyContent='center'>
+      <Grid item xs={11} sm={11} md={10} lg={9} xl={8}> 
         <img src={OfficeLogo} alt='logo for the television series: the office'/>
       </Grid>
       {
         (()=>{
           if(props.finishedLoading === false) {
             return (
-              <Grid item xs={6} style={{ margin: 'auto', marginTop: 12 }}>
+              <Grid item xs={11} sm={11} md={10} lg={9} xl={8}>
                 <LoadingScreen/>
               </Grid>
             )
           } else {
             return (
-              <Grid container item xs={10} sm={8}>
-                <Grid container item justifyContent='center' xs={12}>
+              <Grid container item item justifyContent='center' xs={12} sm={11} md={8}>
+                <Grid container item xs={11}>
                   <Instructions/>
                   <QuoteInput/>
                 </Grid>      
                 <Grid container item xs={12} style={{ display: props.matches.length === 0 ? null : 'none' }}>
                   <Grid item xs={12} style={{ marginBottom: 24 }}>No results found.  Try another search term.</Grid>
-                  <Grid item xs={12}><img src={BlindGuyMcSqueezy} alt='Michael Scott`s improv character Blind Guy McSqueezy'/></Grid>        
+                  <Grid item xs={12}><img src={BlindGuyMcSqueezy} style={{width: '100%'}} alt='Michael Scott`s improv character Blind Guy McSqueezy'/></Grid>        
                 </Grid>
-                <Grid container item xs={12} style={{ display: props.matches.length === 0 ? 'none' : null }}>
-                  <Treemap/>
-                  {/* <Bubbles/>*/}
-                  <Matches/>
+                <Grid container item justifyContent='center' xs={12} style={{ opacity: props.matches.length === 0 ? '0%' : null }}>
+                  <Grid item xs={11}>
+                    <Treemap/>             
+                    <ResultsFoundCount/>              
+                  </Grid>                  
+                  <Grid item xs={12} sm={12} md={11}>
+                    <Matches/>
+                  </Grid>
+                  {/* <Bubbles/> */}
+                  
                 </Grid>
               </Grid>
             )

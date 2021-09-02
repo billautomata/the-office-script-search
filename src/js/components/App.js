@@ -22,7 +22,7 @@ function mapDispatchToProps(dispatch) {
 
 const ConnectedApp = function ({ addLines, addSeries, findMatches, finishLoading, setSize }) {
 
-  setSize({ payload: useMediaQuery({ query: '(max-width: 1224px)' }) })
+  // setSize({ payload: useMediaQuery({ query: '(max-width: 1224px)' }) })
 
   csv(DataOfficeLines).then(d=>{
     addLines(d)

@@ -16,6 +16,8 @@ import {
   TREEMAP_SIZE
 } from '../../constants/action-types'
 
+let treemapParentNode = null
+
 const initialState = {  
   bubbleData: { seasons: [] },
   expandedMatches: [],
@@ -66,6 +68,12 @@ function rootReducer(state = initialState, action) {
         }            
       })
       const updatedBubbleData = updateBubbleData(state.bubbleData, matches, null)
+      if(treemapParentNode !== null) {
+        console.log(treemapParentNode.current)
+        if(treemapParentNode.current !== undefined) {
+          console.log(treemapParentNode.current.clientWidth, treemapParentNode.current.clientHeight)
+        }        
+      } 
       const treemapLeaves = generateTreemap(matches, state.treemapDimensions)
       return Object.assign({}, state, { matches, bubbleData: updatedBubbleData, expandedMatches: [], treemapLeaves, filteredCharacter: null })
     case FINISH_LOADING:
@@ -78,8 +86,7 @@ function rootReducer(state = initialState, action) {
       if(action.payload.current === undefined || action.payload.current === null) {
         return
       }
-      console.log('ref', action.payload.current.clientWidth, action.payload.current.clientHeight )
-      console.log(action.payload.current)
+      treemapParentNode = action.payload
       const treemapDimensions = [ action.payload.current.clientWidth, action.payload.current.clientHeight ]
       return Object.assign({}, state, { treemapDimensions, treemapLeaves: generateTreemap(state.matches, treemapDimensions) })  
     default:

@@ -1,10 +1,6 @@
 import Grid from '@material-ui/core/Grid'
-import { MOBILE_DEFINITION } from '../../constants/definitions'
-import useMediaQuery from '@material-ui/core/useMediaQuery'
 
 export default function Instructions (props) {
-  const isMobile = useMediaQuery(MOBILE_DEFINITION)
-  console.log('is mobile', isMobile)
   return (
     <Grid container item style={{ lineHeight: '1.33em', marginTop: 8, textAlign: 'left'}} xs={12}>
       <Grid item xs={12}>

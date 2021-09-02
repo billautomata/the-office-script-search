@@ -14,7 +14,9 @@ function mapDispatchToProps(dispatch) {
 function ConnectedResultsFoundCount (props) {
   return (
     <Grid item container xs={12} justifyContent='flex-end'>
-      <span style={{fontWeight: 700, marginRight: 4}}>{ props.resultsFound }</span> result{ props.resultsFound === 1 ? '' : 's' } found
+      <div style={{textAlign: 'right'}}>
+        <span style={{fontWeight: 700, marginRight: 4}}>{ props.resultsFound }</span> result{ props.resultsFound === 1 ? '' : 's' } found
+      </div>
     </Grid>
   )
 }
