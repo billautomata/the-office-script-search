@@ -20,7 +20,7 @@ function ConnectedQuoteInput (props) {
     <Grid item xs={12}>
       <TextField label="Quote" variant="outlined" 
         defaultValue={props.quote} 
-        style={{width: 768, marginBottom: 14}}
+        style={{ marginBottom: 14, width: '100%' }}
         onChange={(event)=>{ 
           props.setQuote({ quote: event.nativeEvent.target.value })
         }}

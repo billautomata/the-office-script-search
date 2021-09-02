@@ -11,7 +11,9 @@ import {
   EXPAND_ALL_LINES,
   FIND_MATCHES,
   FINISH_LOADING,
-  SET_QUOTE
+  SET_QUOTE,
+  SET_SIZE,
+  TREEMAP_SIZE
 } from '../../constants/action-types'
 
 const initialState = {  
@@ -19,9 +21,11 @@ const initialState = {
   expandedMatches: [],
   filteredCharacter: null,
   finishedLoading: false,
+  isTabletOrMobile: false,
   lines: [],
   matches: [],
   series: [],
+  treemapDimensions: [0,0],
   treemapLeaves: [],  
   quote: 'that\'s what she said',
 }
@@ -62,12 +66,22 @@ function rootReducer(state = initialState, action) {
         }            
       })
       const updatedBubbleData = updateBubbleData(state.bubbleData, matches, null)
-      const treemapLeaves = generateTreemap(matches)
+      const treemapLeaves = generateTreemap(matches, state.treemapDimensions)
       return Object.assign({}, state, { matches, bubbleData: updatedBubbleData, expandedMatches: [], treemapLeaves, filteredCharacter: null })
     case FINISH_LOADING:
       return Object.assign({}, state, { finishedLoading: true })      
     case SET_QUOTE: 
       return Object.assign({}, state, { quote: action.payload.quote })
+    case SET_SIZE:
+      return Object.assign({}, state, { isTabletOrMobile: action.payload })
+    case TREEMAP_SIZE:
+      if(action.payload.current === undefined || action.payload.current === null) {
+        return
+      }
+      console.log('ref', action.payload.current.clientWidth, action.payload.current.clientHeight )
+      console.log(action.payload.current)
+      const treemapDimensions = [ action.payload.current.clientWidth, action.payload.current.clientHeight ]
+      return Object.assign({}, state, { treemapDimensions, treemapLeaves: generateTreemap(state.matches, treemapDimensions) })  
     default:
       return state
   }

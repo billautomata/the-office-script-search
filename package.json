@@ -2,15 +2,17 @@
   "name": "the-office-visualizations-redux",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://billautomata.github.io/the-office-script-search/",
   "dependencies": {
+    "@material-ui/core": "^4.11.4",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
-    "@material-ui/core": "^4.11.4",
     "d3": "^6.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.4",
+    "react-responsive": "^9.0.0-beta.3",
     "react-scripts": "4.0.3",
     "web-vitals": "^1.1.2"
   },

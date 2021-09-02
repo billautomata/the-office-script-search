@@ -35,9 +35,9 @@ function mapDispatchToProps(dispatch) {
   
 const ConnectedLineSearch = function (props) {
   return (
-    <Grid container style={{ textAlign: 'center', marginBottom: 1024, marginTop: 16 }}>
-      <Grid item xs={12}>
-        <img src={OfficeLogo} style={{ width: 820, margin: 'auto'}} alt='logo for the television series: the office'/>
+    <Grid container style={{ textAlign: 'center', marginBottom: 1024, marginTop: 16 }} justifyContent='center'>
+      <Grid item xs={11} sm={8}> 
+        <img src={OfficeLogo} alt='logo for the television series: the office'/>
       </Grid>
       {
         (()=>{
@@ -49,8 +49,8 @@ const ConnectedLineSearch = function (props) {
             )
           } else {
             return (
-              <Grid container item xs={12}>
-                <Grid container item justifyContent='center' style={{margin: 'auto', width: 820}}>
+              <Grid container item xs={10} sm={8}>
+                <Grid container item justifyContent='center' xs={12}>
                   <Instructions/>
                   <QuoteInput/>
                 </Grid>      
@@ -60,7 +60,7 @@ const ConnectedLineSearch = function (props) {
                 </Grid>
                 <Grid container item xs={12} style={{ display: props.matches.length === 0 ? 'none' : null }}>
                   <Treemap/>
-                  <Bubbles/>            
+                  {/* <Bubbles/>*/}
                   <Matches/>
                 </Grid>
               </Grid>

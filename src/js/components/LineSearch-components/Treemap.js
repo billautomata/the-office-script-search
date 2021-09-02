@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
 import { Grid } from '@material-ui/core'
-import { characterFilter } from '../../actions'
+import React, { useCallback, useEffect } from 'react'
+import { characterFilter, treemapResize } from '../../actions'
 
 const mapStateToProps = (state) => {
   return {
@@ -11,14 +12,38 @@ const mapStateToProps = (state) => {
 
 function mapDispatchToProps(dispatch) {
   return {
-    setFilteredCharacter: payload => { dispatch(characterFilter(payload))}
+    setFilteredCharacter: payload => { dispatch(characterFilter(payload)) },
+    setTreemapContainerSize: payload => { dispatch(treemapResize(payload)) }
   }
 }
 
-function ConnectedTreemap ({ treemapLeaves, filteredCharacter, setFilteredCharacter }) {
+function ConnectedTreemap ({ treemapLeaves, filteredCharacter, setFilteredCharacter, setTreemapContainerSize }) {
+  // const containerReference = React.createRef()  
+
+  const containerReference = useCallback(node => {
+    if (node !== null) {
+      console.log('node exists')
+      setTreemapContainerSize({ current: node })
+      window.TREEMAP_resizeAction = window.addEventListener('resize', () => {
+        console.log('resize action', node)
+        setTreemapContainerSize({ current: node })
+      })
+    }
+  }, []);
+
+  useEffect(() => {
+    console.log("I have been mounted")
+    // setTreemapContainerSize(containerReference)
+    // if (window.TREEMAP_resizeAction === undefined) {
+    //   window.TREEMAP_resizeAction = window.addEventListener('resize', () => {
+    //     console.log('resize action', containerReference)
+    //     setTreemapContainerSize(containerReference)
+    //   })
+    // }
+  }, [])  
   return (
-    <Grid item xs={12} style={{ marginBottom: 0 }}>
-      <div style={{ position: 'relative', height: 172, width: 1024, margin: 'auto'}}>
+    <Grid item xs={12} style={{ marginBottom: 0 }} ref={containerReference}>
+      <div style={{ position: 'relative', height: 172, width: '100%', margin: 'auto'}}>
         {
           treemapLeaves.map((leaf,leafIdx) => {
             return (
