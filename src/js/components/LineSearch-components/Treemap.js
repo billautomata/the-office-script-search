@@ -17,36 +17,26 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-function ConnectedTreemap ({ treemapLeaves, filteredCharacter, setFilteredCharacter, setTreemapContainerSize }) {
-  // const containerReference = React.createRef()  
-
-  const containerReference = useCallback(node => {
+function ConnectedTreemap (props) {
+  const containerReference = useCallback((node) => {
     if (node !== null) {
-      setTreemapContainerSize({ current: node })
+      props.setTreemapContainerSize({ current: node })
       window.TREEMAP_resizeAction = window.addEventListener('resize', () => {
-        setTreemapContainerSize({ current: node })
+        props.setTreemapContainerSize({ current: node })
       })
       return function cleanup () {
         window.removeEventListener(window.TREEMAP_resizeAction)
       }
     }
-  }, []);
+  }, [])
 
-  useEffect(() => {
-    console.log("I have been mounted")
-    // setTreemapContainerSize(containerReference)
-    // if (window.TREEMAP_resizeAction === undefined) {
-    //   window.TREEMAP_resizeAction = window.addEventListener('resize', () => {
-    //     console.log('resize action', containerReference)
-    //     setTreemapContainerSize(containerReference)
-    //   })
-    // }
-  }, [])  
+  useEffect(()=>{},[])
+
   return (
     <Grid item xs={12} style={{ marginBottom: 0 }} ref={containerReference}>
       <div style={{ position: 'relative', height: 172, width: '100%', margin: 'auto'}}>
         {
-          treemapLeaves.map((leaf,leafIdx) => {
+          props.treemapLeaves.map((leaf,leafIdx) => {
             return (
               <div 
                 key={`treemap_leaf_${leafIdx}`}
@@ -62,13 +52,13 @@ function ConnectedTreemap ({ treemapLeaves, filteredCharacter, setFilteredCharac
                   borderRadius: '4px',
                   userSelect: 'none',
                   cursor: 'pointer',
-                  border: filteredCharacter === leaf.data.name ? '1px solid #333' : '1px solid transparent'            
+                  border: props.filteredCharacter === leaf.data.name ? '1px solid #333' : '1px solid transparent'            
                 }}
                 onClick={()=>{
-                  if(filteredCharacter === null || filteredCharacter !== leaf.data.name) {
-                    setFilteredCharacter(leaf.data.name)
+                  if(props.filteredCharacter === null || props.filteredCharacter !== leaf.data.name) {
+                    props.setFilteredCharacter(leaf.data.name)
                   } else {
-                    setFilteredCharacter(null)
+                    props.setFilteredCharacter(null)
                   }
                 }}
               >

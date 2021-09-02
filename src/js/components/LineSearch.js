@@ -50,7 +50,7 @@ const ConnectedLineSearch = function (props) {
             )
           } else {
             return (
-              <Grid container item item justifyContent='center' xs={12} sm={11} md={11} lg={10} xl={8}>
+              <Grid container item justifyContent='center' xs={12} sm={11} md={11} lg={10} xl={8}>
                 <Grid container item xs={11}>
                   <Instructions/>
                   <QuoteInput/>

@@ -26,6 +26,7 @@ const initialState = {
   isTabletOrMobile: false,
   lines: [],
   matches: [],
+  maxSlice: false,
   series: [],
   treemapDimensions: [0,0],
   treemapLeaves: [],  

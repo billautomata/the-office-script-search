@@ -1,16 +1,14 @@
 import { connect } from 'react-redux'
 import Box from '@material-ui/core/Box'
 import Grid from '@material-ui/core/Grid'
-import useMediaQuery from '@material-ui/core/useMediaQuery'
-import ResultsFoundCount from './ResultsFoundCount'
 import { expandAllLines, expandLine } from '../../actions/index'
-import { MOBILE_DEFINITION } from '../../constants/definitions'
 
 const mapStateToProps = (state, ownProps) => {
   return {
     lines: state.lines,
     isTabletOrMobile: state.isTabletOrMobile,
     matches: state.matches,
+    maxSlice: state.maxSlice,
     expandedMatches: state.expandedMatches,
     filteredCharacter: state.filteredCharacter,
     series: state.series
@@ -25,8 +23,6 @@ function mapDispatchToProps(dispatch) {
 }
 
 function ConnectedMatches (props) {
-  const isMobile = useMediaQuery(MOBILE_DEFINITION)
-
   return (
     <Grid item container xs={12}>
       <Grid item container data-testid='matches' xs={12}>
@@ -57,7 +53,8 @@ function ConnectedMatches (props) {
           </Grid>            
         </Grid>              
         {
-          props.matches.filter(match=>{
+          props.matches.slice(0,props.maxSlice === true ? props.matches.length : 50)
+          .filter(match=>{
             if(props.filteredCharacter === null || props.filteredCharacter === match.speaker) {
               return true
             } else {
