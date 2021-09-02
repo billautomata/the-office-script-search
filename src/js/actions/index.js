@@ -7,6 +7,9 @@ import {
   FIND_MATCHES,
   FINISH_LOADING,
   SET_QUOTE,
+  SET_SIZE,
+  SHOW_ALL,
+  TREEMAP_SIZE
 } from '../constants/action-types'
 
 export function addLines (payload) {
@@ -39,4 +42,16 @@ export function finishLoading (payload) {
 
 export function setQuote (payload) {
   return { type: SET_QUOTE, payload }
+}
+
+export function setSize (payload) {
+  return { type: SET_SIZE, payload }
+}
+
+export function setShowAll (payload) {
+  return { type: SHOW_ALL, payload }
+}
+
+export function treemapResize (payload) {
+  return { type: TREEMAP_SIZE, payload }
 }

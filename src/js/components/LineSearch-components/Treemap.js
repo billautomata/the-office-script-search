@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
 import { Grid } from '@material-ui/core'
-import { characterFilter } from '../../actions'
+import React, { useCallback, useEffect } from 'react'
+import { characterFilter, treemapResize } from '../../actions'
 
 const mapStateToProps = (state) => {
   return {
@@ -11,16 +12,31 @@ const mapStateToProps = (state) => {
 
 function mapDispatchToProps(dispatch) {
   return {
-    setFilteredCharacter: payload => { dispatch(characterFilter(payload))}
+    setFilteredCharacter: payload => { dispatch(characterFilter(payload)) },
+    setTreemapContainerSize: payload => { dispatch(treemapResize(payload)) }
   }
 }
 
-function ConnectedTreemap ({ treemapLeaves, filteredCharacter, setFilteredCharacter }) {
+function ConnectedTreemap (props) {
+  const containerReference = useCallback((node) => {
+    if (node !== null) {
+      props.setTreemapContainerSize({ current: node })
+      window.TREEMAP_resizeAction = window.addEventListener('resize', () => {
+        props.setTreemapContainerSize({ current: node })
+      })
+      return function cleanup () {
+        window.removeEventListener(window.TREEMAP_resizeAction)
+      }
+    }
+  }, [])
+
+  useEffect(()=>{},[])
+
   return (
-    <Grid item xs={12} style={{ marginBottom: 0 }}>
-      <div style={{ position: 'relative', height: 172, width: 1024, margin: 'auto'}}>
+    <Grid item xs={12} style={{ marginBottom: 0 }} ref={containerReference}>
+      <div style={{ position: 'relative', height: 172, width: '100%', margin: 'auto'}}>
         {
-          treemapLeaves.map((leaf,leafIdx) => {
+          props.treemapLeaves.map((leaf,leafIdx) => {
             return (
               <div 
                 key={`treemap_leaf_${leafIdx}`}
@@ -36,13 +52,13 @@ function ConnectedTreemap ({ treemapLeaves, filteredCharacter, setFilteredCharac
                   borderRadius: '4px',
                   userSelect: 'none',
                   cursor: 'pointer',
-                  border: filteredCharacter === leaf.data.name ? '1px solid #333' : '1px solid transparent'            
+                  border: props.filteredCharacter === leaf.data.name ? '1px solid #333' : '1px solid transparent'            
                 }}
                 onClick={()=>{
-                  if(filteredCharacter === null || filteredCharacter !== leaf.data.name) {
-                    setFilteredCharacter(leaf.data.name)
+                  if(props.filteredCharacter === null || props.filteredCharacter !== leaf.data.name) {
+                    props.setFilteredCharacter(leaf.data.name)
                   } else {
-                    setFilteredCharacter(null)
+                    props.setFilteredCharacter(null)
                   }
                 }}
               >

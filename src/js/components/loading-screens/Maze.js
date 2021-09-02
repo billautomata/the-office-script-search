@@ -13,7 +13,7 @@ export default class SpiralScreen extends React.Component {
     componentDidMount() {
       const w = 512
       const h = 512
-      const gridSize = 48
+      const gridSize = 24
       const strokeWidthMulti = 0.5
       const wavePeriod = 1500
       const waveDelay = wavePeriod / gridSize
@@ -22,27 +22,13 @@ export default class SpiralScreen extends React.Component {
       const svg = d3.select(this.svgRef.current)
         .attr('viewBox', [0,0,w,h].join(' '))
         .attr('width', '100%').attr('margin', 'auto')
-        .style('background-color', '#000')
+        .style('background-color', '#FFF')
 
       const defs = svg.append('defs')
-      
-      const lg = defs.append('linearGradient').attr('id', 'text-color-gradient')
-      const stop0 = lg.append('stop')
-        .attr('stop-color', '#FFF')
-        .attr('offset', '0%')
-        .attr('stop-opacity', '0%')
-      const stop1 = lg.append('stop')
-        .attr('stop-color', '#FFF')
-        .attr('offset', '50%')
-        .attr('stop-opacity', '100%')
-      const stop2 = lg.append('stop')
-        .attr('stop-color', '#FFF')
-        .attr('offset', '100%')
-        .attr('stop-opacity', '0%')
 
       const filterShadow = defs.append('filter').attr('id','filter-shadow-maze-text')
       
-      const dropShadow = filterShadow.append('feDropShadow')
+      filterShadow.append('feDropShadow')
         .attr('dx',0).attr('dy',0).attr('stdDeviation', 10)
         .attr('flood-color','#777')
 
@@ -55,7 +41,6 @@ export default class SpiralScreen extends React.Component {
       const halfGridScale = gridScale(0.5)
   
       const gParent = svg.append('g').attr('transform', `translate(${halfGridScale} ${halfGridScale})`)
-        // .attr('clip-path', 'url(#clip-mask-circle-bg)')
 
       const gText = svg.append('g').attr('transform', `translate(${w*0.5} ${h*0.444})`)
         .attr('filter', 'url(#filter-shadow-maze-text)')
