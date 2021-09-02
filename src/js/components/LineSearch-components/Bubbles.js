@@ -86,7 +86,7 @@ function ConnectedBubbles ({ bubbleData }) {
           </svg>
         </Box>
         <Box display={{ xs: 'block', sm: 'none' }}>
-          <svg viewBox={'0 0 410 660'} style={{ userSelect: 'none' }}>
+          <svg viewBox={'0 0 370 660'} style={{ userSelect: 'none' }}>
           <g transform='translate(0 20)'>
             {
               Object.values(bubbleData.seasons).map((season, seasonIdx) => {
@@ -99,7 +99,7 @@ function ConnectedBubbles ({ bubbleData }) {
                     {
                       season.episodes.map((episode, episodeIdx) => {
                         return (
-                          <g data-testid={`bc-${seasonIdx}-${episodeIdx}`}
+                          <g data-testid={`bc-mobile-${seasonIdx}-${episodeIdx}`}
                             transform={`translate(${25 + (episodeIdx * circleSizeMobile*1.333)} ${(episodeIdx % 2 === 1 ? circleSizeMobile * 1.8 : 0)})`} key={`bubble_season_${seasonIdx}_episode_${episodeIdx}`}
                             style={{
                               cursor: episode > 0 ? 'pointer' : null
@@ -125,7 +125,7 @@ function ConnectedBubbles ({ bubbleData }) {
                               strokeWidth='1'/>
                             <text x='0' y='0' 
                               fill={ episode === 0 ? 'white' : '#333' }
-                              fontWeight='700' fontSize='12' 
+                              fontWeight='700' fontSize='10' 
                               textAnchor='middle' dy='0.33em'>{episode}</text>
                           </g>
                         )
@@ -150,8 +150,8 @@ function ConnectedBubbles ({ bubbleData }) {
                     stroke='#CCC'/>
                   <text x='0' y='0' 
                     fill='#CCC'
-                    fontWeight='700' fontSize='12' 
-                    textAnchor='middle' dy='0.33em'>{episodeIdx}</text>
+                    fontWeight='700' fontSize='10' 
+                    textAnchor='middle' dy='0.33em'>{episodeIdx+1}</text>
                 </g>
 
                   // <g transform={`translate(${125+(idx*35)} 0)`} key={`bubbles_legend_episode_${idx}`}>

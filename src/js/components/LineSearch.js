@@ -37,7 +37,7 @@ function mapDispatchToProps(dispatch) {
 const ConnectedLineSearch = function (props) {
   return (
     <Grid container style={{ textAlign: 'center', marginBottom: 1024, marginTop: 14 }} justifyContent='center'>
-      <Grid item xs={11} sm={11} md={11} lg={10} xl={8}> 
+      <Grid item xs={11} sm={11} md={11} lg={7} xl={6}> 
         <img src={OfficeLogo} alt='logo for the television series: the office'/>
       </Grid>
       {
@@ -60,10 +60,10 @@ const ConnectedLineSearch = function (props) {
                   <Grid item xs={12}><img src={BlindGuyMcSqueezy} style={{width: '100%'}} alt='Michael Scott`s improv character Blind Guy McSqueezy'/></Grid>        
                 </Grid>
                 <Grid container item justifyContent='center' xs={12} style={{ opacity: props.matches.length === 0 ? '0%' : null }}>
-                  <Grid item xs={11}>
+                  <Grid item xs={11} sm={11}>
                     <Treemap/>                               
                   </Grid>                  
-                  <Grid item xs={12} sm={11} md={11}>
+                  <Grid item xs={11} sm={12}>
                     <Bubbles/>
                   </Grid>
                   <Grid item xs={11} sm={12}>
