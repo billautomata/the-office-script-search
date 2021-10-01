@@ -18,7 +18,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "deploy": "rm -rf docs; npm run build; mv build docs; git commit -am 'deploy'; git push origin gh-pages",
+    "deploy": "rm -rf docs; npm run build; mv build docs; git add --all; git commit -am 'deploy'; git push origin gh-pages",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
