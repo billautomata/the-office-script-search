@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/the-office-script-search/static/css/main.6dea0f05.chunk.css",
-    "main.js": "/the-office-script-search/static/js/main.9a232598.chunk.js",
-    "main.js.map": "/the-office-script-search/static/js/main.9a232598.chunk.js.map",
+    "main.css": "/the-office-script-search/static/css/main.ecfb6c94.chunk.css",
+    "main.js": "/the-office-script-search/static/js/main.8112d6f3.chunk.js",
+    "main.js.map": "/the-office-script-search/static/js/main.8112d6f3.chunk.js.map",
     "runtime-main.js": "/the-office-script-search/static/js/runtime-main.150d97d9.js",
     "runtime-main.js.map": "/the-office-script-search/static/js/runtime-main.150d97d9.js.map",
     "static/js/2.fa06ab0b.chunk.js": "/the-office-script-search/static/js/2.fa06ab0b.chunk.js",
@@ -10,7 +10,7 @@
     "static/js/3.3a584a2e.chunk.js": "/the-office-script-search/static/js/3.3a584a2e.chunk.js",
     "static/js/3.3a584a2e.chunk.js.map": "/the-office-script-search/static/js/3.3a584a2e.chunk.js.map",
     "index.html": "/the-office-script-search/index.html",
-    "static/css/main.6dea0f05.chunk.css.map": "/the-office-script-search/static/css/main.6dea0f05.chunk.css.map",
+    "static/css/main.ecfb6c94.chunk.css.map": "/the-office-script-search/static/css/main.ecfb6c94.chunk.css.map",
     "static/js/2.fa06ab0b.chunk.js.LICENSE.txt": "/the-office-script-search/static/js/2.fa06ab0b.chunk.js.LICENSE.txt",
     "static/media/blind-guy-mcsqueezy.a07a56ae.jpeg": "/the-office-script-search/static/media/blind-guy-mcsqueezy.a07a56ae.jpeg",
     "static/media/the-office-lines-scripts.ec62a81b.csv": "/the-office-script-search/static/media/the-office-lines-scripts.ec62a81b.csv",
@@ -20,7 +20,7 @@
   "entrypoints": [
     "static/js/runtime-main.150d97d9.js",
     "static/js/2.fa06ab0b.chunk.js",
-    "static/css/main.6dea0f05.chunk.css",
-    "static/js/main.9a232598.chunk.js"
+    "static/css/main.ecfb6c94.chunk.css",
+    "static/js/main.8112d6f3.chunk.js"
   ]
 }

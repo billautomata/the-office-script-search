@@ -4,8 +4,8 @@ export default function Instructions (props) {
   return (
     <Grid container item style={{ lineHeight: '1.33em', marginTop: 8, textAlign: 'left'}} xs={12}>
       <Grid item xs={12}>
-        This application lets you search the scripts from the NBC television show <a style={{ color: '##a6cee3' }} href="https://en.wikipedia.org/wiki/The_Office_(American_TV_series)">The Office</a>
-        , and visualizes the results to give you insight as to which episode the quote appears, 
+        This application lets you search the scripts from the NBC television show The Office, 
+        and visualizes the results to give you insight as to which episode the quote appears, 
         who said the quote, when they said the quote, how many times they said the quote, 
         and the context of the quote.
       </Grid>
